@@ -23,8 +23,8 @@ class BokehPlot(BasePlot):
         self.figure = figure(toolbar_location="below",
                              toolbar_sticky=False,
                              x_axis_type='datetime',
-                             plot_width=self.width,
-                             plot_height=self.height)  # TODO remove
+                             width=self.width,
+                             height=self.height)  # TODO remove
         self.legend = []
 
     def show(self, title='', xlabel='', ylabel='', xaxis=True, yaxis=True, xticks=True, yticks=True, legend=True, grid=True, **kwargs):
@@ -119,7 +119,7 @@ class BokehPlot(BasePlot):
     def line(self, data, color=None, y_axis='left', **kwargs):
         for i, col in enumerate(data):
             c = get_color(i, col, color)
-            fig = self.figure.line(x=data.index, y=data[col].values, legend=col, color=c, **kwargs)
+            fig = self.figure.line(x=data.index, y=data[col].values, legend_label=col, color=c, **kwargs)
             self.legend.append((col, [fig]))
 
     def scatter(self, data, color=None, y_axis='left', **kwargs):
