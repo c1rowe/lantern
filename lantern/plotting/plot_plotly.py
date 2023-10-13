@@ -1,8 +1,12 @@
 import plotly.graph_objs as go
 from colorlover import to_rgb
+import cufflinks as cf
 from plotly.graph_objs import FigureWidget
 from .plotobj import BasePlot
 from .plotutils import get_color
+
+cf.go_offline()
+cf.set_config_file(offline=False, world_readable=True)
 
 
 class PlotlyPlot(BasePlot):
